@@ -1,0 +1,39 @@
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+# Enable additional rulesets
+lint.select = [
+    "E",   # Pyflakes (error detection)
+    "F",   # Pyflakes (unused imports, undefined variables, etc.)
+    "I",   # isort (import sorting)
+    "N",   # pep8-naming (naming conventions)
+    "D",   # pydocstyle (docstrings)
+    "UP",  # pyupgrade (modernizing code)
+    "S",   # flake8-bandit (security issues)
+    "B",   # flake8-bugbear (best practices)
+    "A",   # flake8-builtins (built-in function overrides)
+    "C90", # McCabe complexity
+    "ANN", # Enables type hint checking
+
+]
+
+# Ignore specific rules 
+lint.ignore = [
+    "D100",
+    "D104", # Ignore missing docstrings for modules/classes
+    "E501", # Ignore line length
+    "S101", # Ignore use of `assert`
+]
+
+# Exclude specific directories
+exclude = ["migrations", "__pycache__", "tests", "venv", ".venv"]
+
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "tab"
+line-ending = "auto"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*.py" = ["D", "S101"]
