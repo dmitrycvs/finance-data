@@ -1,0 +1,30 @@
+name: 'bigquery_pipeline'
+version: '1.0.0'
+config-version: 2
+
+profile: 'bigquery'
+
+model-paths: ['models']
+target-path: 'target'
+clean-targets:
+  - 'target'
+  - 'dbt_packages'
+  - 'logs'
+
+seed-paths: ['data']
+
+test-paths: ['tests']
+
+analysis-paths: ['analysis']
+
+docs-paths: ['docs']
+
+macro-paths: ['macros']
+
+require-dbt-version: ['>=1.0.0']
+
+models:
+  finance-data-450211:
+    forex:
+      ma:
+        materialized: table
